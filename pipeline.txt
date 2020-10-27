@@ -1,0 +1,535 @@
+
+
+----> Tokened Sentences <----
+
+
+SENTENCE -> 
+John ate at his desk.
+
+
+----> Tokened Words and Characters<----
+
+
+['John', 'ate', 'at', 'his', 'desk', '.']
+
+
+----> End of sentence token module <----
+
+
+
+
+---->Tagged Words<----
+
+
+[('John', 'NNP'), ('ate', 'NN'), ('at', 'IN'), ('his', 'PRP$'), ('desk', 'NN'), ('.', '.')]
+
+
+----> End of Pos Tagger module <----
+
+
+
+
+---->Mesured Enitity detected Word list<----
+
+
+
+
+----> End of Measured Entity module <----
+
+
+
+
+----> Date Recogniser module list<----
+
+
+
+
+---->Parsed Dates<----
+
+
+
+
+----> End of Date Recogniser Module <----
+
+
+
+
+---->Named entity Word list<----
+
+
+['John']
+
+
+---->End of Named entity module<----
+
+
+
+
+----> Tokened Sentences <----
+
+
+SENTENCE -> 
+Finally, O’Malley ate the crunchy apple on the table.
+
+
+----> Tokened Words and Characters<----
+
+
+['Finally', ',', 'O', '’', 'Malley', 'ate', 'the', 'crunchy', 'apple', 'on', 'the', 'table', '.']
+
+
+----> End of sentence token module <----
+
+
+
+
+---->Tagged Words<----
+
+
+[('Finally', 'RB'), (',', ','), ('O', 'NNP'), ('’', 'NNP'), ('Malley', 'NNP'), ('ate', 'VB'), ('the', 'DT'), ('crunchy', 'NN'), ('apple', 'NN'), ('on', 'IN'), ('the', 'DT'), ('table', 'NN'), ('.', '.')]
+
+
+----> End of Pos Tagger module <----
+
+
+
+
+---->Mesured Enitity detected Word list<----
+
+
+
+
+----> End of Measured Entity module <----
+
+
+
+
+----> Date Recogniser module list<----
+
+
+
+
+---->Parsed Dates<----
+
+
+
+
+----> End of Date Recogniser Module <----
+
+
+
+
+---->Named entity Word list<----
+
+
+['O']
+
+
+---->End of Named entity module<----
+
+
+
+
+----> Tokened Sentences <----
+
+
+SENTENCE -> 
+Sue intended to share the fridge with John and Mary.
+
+
+----> Tokened Words and Characters<----
+
+
+['Sue', 'intended', 'to', 'share', 'the', 'fridge', 'with', 'John', 'and', 'Mary', '.']
+
+
+----> End of sentence token module <----
+
+
+
+
+---->Tagged Words<----
+
+
+[('Sue', 'NNP'), ('intended', 'VBD'), ('to', 'TO'), ('share', 'NN'), ('the', 'DT'), ('fridge', 'NN'), ('with', 'IN'), ('John', 'NNP'), ('and', 'CC'), ('Mary', 'NNP'), ('.', '.')]
+
+
+----> End of Pos Tagger module <----
+
+
+
+
+---->Mesured Enitity detected Word list<----
+
+
+
+
+----> End of Measured Entity module <----
+
+
+
+
+----> Date Recogniser module list<----
+
+
+
+
+---->Parsed Dates<----
+
+
+
+
+----> End of Date Recogniser Module <----
+
+
+
+
+---->Named entity Word list<----
+
+
+['Sue', 'John', 'Mary']
+
+
+---->End of Named entity module<----
+
+
+
+
+----> Tokened Sentences <----
+
+
+SENTENCE -> 
+Mary put apples in the fridge last Monday.
+
+
+----> Tokened Words and Characters<----
+
+
+['Mary', 'put', 'apples', 'in', 'the', 'fridge', 'last', 'Monday', '.']
+
+
+----> End of sentence token module <----
+
+
+
+
+---->Tagged Words<----
+
+
+[('Mary', 'NNP'), ('put', 'VBD'), ('apples', 'NNS'), ('in', 'IN'), ('the', 'DT'), ('fridge', 'NN'), ('last', 'JJ'), ('Monday', 'NNP'), ('.', '.')]
+
+
+----> End of Pos Tagger module <----
+
+
+
+
+---->Mesured Enitity detected Word list<----
+
+
+
+
+----> End of Measured Entity module <----
+
+
+
+
+----> Date Recogniser module list<----
+
+
+
+
+---->Parsed Dates<----
+
+
+
+
+----> End of Date Recogniser Module <----
+
+
+
+
+---->Named entity Word list<----
+
+
+['Mary']
+
+
+---->End of Named entity module<----
+
+
+
+
+----> Tokened Sentences <----
+
+
+SENTENCE -> 
+I promise you an apple for September 2021.
+
+
+----> Tokened Words and Characters<----
+
+
+['I', 'promise', 'you', 'an', 'apple', 'for', 'September', '2021', '.']
+
+
+----> End of sentence token module <----
+
+
+
+
+---->Tagged Words<----
+
+
+[('I', 'PRP'), ('promise', 'VBP'), ('you', 'PRP'), ('an', 'DT'), ('apple', 'NN'), ('for', 'IN'), ('September', 'NNP'), ('2021', 'CD'), ('.', '.')]
+
+
+----> End of Pos Tagger module <----
+
+
+
+
+---->Mesured Enitity detected Word list<----
+
+
+
+
+----> End of Measured Entity module <----
+
+
+
+
+----> Date Recogniser module list<----
+
+
+September 2021
+
+
+---->Parsed Dates<----
+
+
+September 2021
+
+(DATE (MONTH September) (YEAR (NUM 2) (NUM 0) (NUM 2) (NUM 1)))
+
+
+----> End of Date Recogniser Module <----
+
+
+
+
+---->Named entity Word list<----
+
+
+[]
+
+
+---->End of Named entity module<----
+
+
+
+
+----> Tokened Sentences <----
+
+
+SENTENCE -> 
+It will be in the office fridge.
+
+
+----> Tokened Words and Characters<----
+
+
+['It', 'will', 'be', 'in', 'the', 'office', 'fridge', '.']
+
+
+----> End of sentence token module <----
+
+
+
+
+---->Tagged Words<----
+
+
+[('It', 'PRP'), ('will', 'MD'), ('be', 'VB'), ('in', 'IN'), ('the', 'DT'), ('office', 'NN'), ('fridge', 'NN'), ('.', '.')]
+
+
+----> End of Pos Tagger module <----
+
+
+
+
+---->Mesured Enitity detected Word list<----
+
+
+
+
+----> End of Measured Entity module <----
+
+
+
+
+----> Date Recogniser module list<----
+
+
+
+
+---->Parsed Dates<----
+
+
+
+
+----> End of Date Recogniser Module <----
+
+
+
+
+---->Named entity Word list<----
+
+
+[]
+
+
+---->End of Named entity module<----
+
+
+
+
+
+					--------> START <----------
+
+
+
+FOR SENTENCE---->          John ate at his desk.
+
+
+
+(S
+  (NP (NNP John))
+  (VP (VBD ate) (PP (IN at) (NP (PRP his) (NN desk))))
+  (POS .))
+
+
+
+					--------> END <----------
+
+
+
+					--------> START <----------
+
+
+
+FOR SENTENCE---->          Finally, O’Malley ate the crunchy apple on the table.
+
+
+
+(S
+  (NP
+    (NP (ADVP (RB Finally)) (POS ,) (NP (NNP O)))
+    (POS ’)
+    (NP (NNP Malley)))
+  (VP
+    (VBD ate)
+    (NP
+      (NP (DT the) (NN crunchy) (NN apple))
+      (PP (IN on) (NP (DT the) (NN table)))))
+  (POS .))
+
+
+
+					--------> END <----------
+
+
+
+					--------> START <----------
+
+
+
+FOR SENTENCE---->          Sue intended to share the fridge with John and Mary.
+
+
+
+(S
+  (NP (NNP Sue))
+  (VP
+    (VBD intended)
+    (SBAR
+      (IN to)
+      (S
+        (VP
+          (VB share)
+          (NP
+            (NP (DT the) (NN fridge))
+            (PP (IN with) (NP (NNP John))))
+          (NP (CC and) (NP (NNP Mary)))))))
+  (POS .))
+
+
+
+					--------> END <----------
+
+
+
+					--------> START <----------
+
+
+
+FOR SENTENCE---->          Mary put apples in the fridge last Monday.
+
+
+
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB put)
+    (NP (NP (NNS apples)) (PP (IN in) (NP (DT the) (NN fridge))))
+    (NP (JJ last) (NNP Monday)))
+  (POS .))
+
+
+
+					--------> END <----------
+
+
+
+					--------> START <----------
+
+
+
+FOR SENTENCE---->          I promise you an apple for September 2021.
+
+
+
+(S
+  (NP (PRP I))
+  (VP
+    (VBP promise)
+    (NP (PRP you))
+    (NP
+      (NP (DT an) (NN apple))
+      (PP (IN for) (NP (DATE (MONTH September) (YEAR 2021))))))
+  (POS .))
+
+
+
+					--------> END <----------
+
+
+
+					--------> START <----------
+
+
+
+FOR SENTENCE---->          It will be in the office fridge.
+
+
+
+(S
+  (NP (PRP It))
+  (VP
+    (MD will)
+    (VP (VB be) (PP (IN in) (NP (DT the) (NN office) (NN fridge)))))
+  (POS .))
+
+
+
+					--------> END <----------

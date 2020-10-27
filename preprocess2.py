@@ -81,7 +81,7 @@ def tokenizer(data, save_to_file):
     token_sentences.pop(0) #removing the first element which might be combination of heading and next sentence
     token_sentences = title_token + token_sentences
     
-    print("\n\n----> Tokened Sentences <----\n\n", file = save_to_file)
+    print("\n\n----> Tokened Sentences\n\n", file = save_to_file)
     for sentence in token_sentences:
         print("SENTENCE -> \n" + sentence, file = save_to_file)
     
@@ -93,9 +93,9 @@ def tokenizer(data, save_to_file):
     for word in token_sentences:
         token_words += word_tokenize(word)
     
-    print("\n\n----> Tokened Words and Characters<----\n\n", file = save_to_file)
+    print("\n\n----> Tokened Words and Characters\n\n", file = save_to_file)
     print(token_words, file = save_to_file)
-    print("\n\n----> End of sentence token module <----\n\n", file = save_to_file)
+    print("\n\n----> End of sentence token module\n\n", file = save_to_file)
     
     pos_tagger(token_words, save_to_file)
 
@@ -109,9 +109,9 @@ def pos_tagger(data, save_to_file):
     #Tagging words from words list by the types
     pos_tagged = pos_tag(data)
     
-    print("\n\n---->Tagged Words<----\n\n", file = save_to_file)
+    print("\n\n----> Tagged Words\n\n", file = save_to_file)
     print(pos_tagged, file = save_to_file)
-    print("\n\n----> End of Pos Tagger module <----\n\n", file = save_to_file)
+    print("\n\n----> End of Pos Tagger module\n\n", file = save_to_file)
     
     measuredEntityDetection(pos_tagged, save_to_file)
     named_entity(pos_tagged, save_to_file)
@@ -160,7 +160,7 @@ def measuredEntityDetection(data, save_to_file):
                 if j[1] in ["NN","NNS", "JJ", "CD"] and j[0] in measurements:
                     resultList.append(i.leaves())
     
-    print("\n\n---->Mesured Enitity detected Word list<----\n\n", file = save_to_file)
+    print("\n\n----> Mesured Enitity detected Word list\n\n", file = save_to_file)
     
     # for x in result
     # for s in result:
@@ -170,7 +170,7 @@ def measuredEntityDetection(data, save_to_file):
                 
     for word in resultList:
         print(word[0][0], word[1][0], file = save_to_file)
-    print("\n\n----> End of Measured Entity module <----\n\n", file = save_to_file)
+    print("\n\n----> End of Measured Entity module\n\n", file = save_to_file)
     
     dateRecognizer(result, save_to_file)    
 
@@ -266,7 +266,7 @@ def dateRecognizer(words, save_to_file):
         elif "CD" in word and "IN" in words[index-1]  and "IN" not in words[index+1] and "NNP" not in words[index+1]:
             dateList.append(word[0])
     
-    print("\n\n----> Date Recogniser module list<----\n\n", file = save_to_file)
+    print("\n\n----> Date Recogniser module list\n\n", file = save_to_file)
     
     #Checking the numbers which could have been recognised as dates , such as 13.2 which is not date in most contexts.
     betterList = []
@@ -280,7 +280,7 @@ def dateRecognizer(words, save_to_file):
     for date in betterList:
         print(date, file = save_to_file)
     
-    print("\n\n---->Parsed Dates<----\n\n", file = save_to_file)
+    print("\n\n----> Parsed Dates\n\n", file = save_to_file)
     
     
     
@@ -306,7 +306,7 @@ def dateRecognizer(words, save_to_file):
     for date in finalDates:
         print(date, file = save_to_file)
         dateParseCFG(date, save_to_file)
-    print("\n\n----> End of Date Recogniser Module <----\n\n", file = save_to_file)
+    print("\n\n----> End of Date Recogniser Module\n\n", file = save_to_file)
 
 '''dateParseCFG() - Parses the string of date by keeping DATE as root and DAY, MONTH and YEAR as children.'''
  
@@ -372,9 +372,9 @@ def named_entity(tagged, save_to_file):
                 current_chunk = []
         else:
             continue
-    print("\n\n---->Named entity Word list<----\n\n", file = save_to_file)
+    print("\n\n----> Named entity Word list\n\n", file = save_to_file)
     print(continuous_chunk, file = save_to_file)
-    print("\n\n---->End of Named entity module<----\n\n", file = save_to_file)   
+    print("\n\n----> End of Named entity module\n\n", file = save_to_file)   
     
 ########################################## End of Named Entity ############################################## 
 
@@ -386,28 +386,30 @@ def sentence_parser(sentences, save_to_file):
         grammar = nltk.CFG.fromstring("""
                                  S -> NP VP | NP VP POS | VP
                                  
-                                 NP -> NNP | NNP NNP | NNP NNP POS NNP | DT | DT NN | DT NN NN | PRP NN | NN NN | JJ NN | JJ NNP | PRP | DATE | PRP NN NNP | NP POS NP POS | PP POS NP | NP POS PP POS NP ADVP | NP POS NP | CC NP | PP NP
-                                 VP -> VBD S | VBD NP | VBD NP PP | VBD NP PP PP | VBD SBAR | MD VP | VB NP PP | VB NP PP PP | VB NP PP PP PP | VB ADJP | VBD NP SBAR | IN VP | VBD ADJP NP | VP CC VP | VB NP NP
+                                 NP -> NNP | NNS | NP PP | NNP NNP | NNP NNP POS NNP | DT | DT NN | DT NN NN | PRP NN | NN NN | JJ NN | JJ NNP | PRP | DATE | PRP NN NNP | NP POS NP POS | PP POS NP | NP POS PP POS NP ADVP | NP POS NP | CC NP | PP NP | ADVP POS NP | NNP CC NNP
+                                 VP -> VBD S | VBD NP | VBD PP | VBD NP PP | VBD NP PP PP | VBD NP PP NP | VBD SBAR | MD VP | VB NP PP | VB NP PP PP | VB NP PP PP PP | VB ADJP | VBD NP SBAR | IN VP | VBD ADJP NP | VP CC VP | VB NP NP | VBP NP NP | VB PP
                                  PP -> IN NP | IN NP POS NP
                                  ADVP -> RB
                                  SBAR -> IN S | SBAR CC SBAR
                                  ADJP -> JJ
-                                 DATE -> MONTH DAY POS YEAR
+                                 DATE -> MONTH DAY POS YEAR | MONTH YEAR
                                  
                                  CC -> "and" | "But"
                                  MONTH -> "September"
                                  DAY -> "17"
-                                 YEAR -> "2018"
-                                 VB -> "put" | "eat" | "be" | "share" | "delight"
+                                 YEAR -> "2018" | "2021"
+                                 VB -> "put" | "eat" | "be" | "share" | "delight" | "be"
                                  MD -> "will" | "would"
-                                 IN -> "at" | "On" | "in" | "from" | "on" | "to" | "that" | "with"
+                                 IN -> "at" | "On" | "in" | "from" | "on" | "to" | "that" | "with" | "for"
                                  NNP -> "John" | "Monday" | "Tuesday" | "O" | "Malley" | "Mary" | "Sue"
-                                 VBD -> "ate" | "took" | "promised" | "said" | "intended" | "was" | "anticipated"
-                                 PRP -> "his" | "he" | "He" | "it" | "It" | "her" | "she" | "them"
+                                 NNS -> "apples"
+                                 VBD -> "ate" | "took" | "promised" | "said" | "intended" | "was" | "anticipated" | "put"
+                                 VBP -> "promise"
+                                 PRP -> "his" | "he" | "He" | "it" | "It" | "her" | "she" | "them" | "I" | "you"
                                  DT -> "an" | "the" | "a" | "that" | "both"
                                  NN -> "apple" | "table" | "fridge" | "office" | "refrigerator" | "week" | "desk" | "colleague" | "replacement" | "day" | "crunchy" | "treat"
-                                 JJ -> "Last" | "crunchy" | "sick"
-                                 RB -> "finally"
+                                 JJ -> "Last" | "last" | "crunchy" | "sick"
+                                 RB -> "finally" | "Finally"
                                  POS -> "." | "," | "’"
                                      """)
         
@@ -434,6 +436,17 @@ def get_data():
     data = [sent1, sent2, sent3, sent4, sent5, sent6, sent7, sent8, sent9] 
     return data
 
+def get_challenge_data():
+    sent1 = "John ate at his desk."
+    sent2 = "Finally, O’Malley ate the crunchy apple on the table."
+    sent3 = "Sue intended to share the fridge with John and Mary."
+    sent4 = "Mary put apples in the fridge last Monday."
+    sent5 = "I promise you an apple for September 2021."
+    sent6 = "It will be in the office fridge."
+    
+    data = [sent1, sent2, sent3, sent4, sent5, sent6] 
+    return data
+
 def test_run(data, save_to_file):   
              
     for sentence in data:
@@ -457,7 +470,7 @@ def main():
             print("Please give a valid input.")
         
 def after_save(save_to_file):
-    one_option = input("\nPress 1 to choose from NLTK Corpus. (Project 1) \nPress 2 to choose Validation Data. (Project 2) \nPress 3 to input a sentence. (Project 2)\n\n")
+    one_option = input("\nPress 1 to choose from NLTK Corpus. (Project 1) \nPress 2 to choose Validation Data. (Project 2) \nPress 3 to choose Challenge Run Data. (Project 2)\nPress 4 to input a sentence. (Project 2)\n\n")
             
     if one_option == "1":
         print("\nPlease choose from below provided corpus:\n")
@@ -471,10 +484,12 @@ def after_save(save_to_file):
         tokenizer(data, save_to_file)
             
     elif one_option == "2":
+        
         count1 = 1
         print("\nPress 1 to run on all validation data.")
         print("Press 2 to choose sentences from validation data.\n")
         second_option = input()
+        
         if second_option == "1":
             for sentence in get_data():
                 tokenizer(sentence, save_to_file)
@@ -484,82 +499,34 @@ def after_save(save_to_file):
                 print("\n",str(count1)+ ")", " ", sentence)
                 count1+=1
             third_option = input()
+            tokenizer(get_data()[int(third_option)-1], save_to_file)
             sentence_parser(get_data()[int(third_option)-1], save_to_file)
-        elif one_option == "3":
-            sentences = input("Please write a full sentence.\n")
-            sentence_parser(sentences, save_to_file)
         else:
-            print("Invalid input please run preprocess again.")
-
+            print("Invalid input please run preprocess again.") 
+            
+    elif one_option == "3":
+        count2 = 1
+        print("\nPress 1 to run on all Challenge run data.")
+        print("Press 2 to choose sentences from Challenge run data.\n")
+        second_option = input()
+        
+        if second_option == "1":
+            for sentence in get_challenge_data():
+                tokenizer(sentence, save_to_file)
+            test_run(get_challenge_data(), save_to_file)
+        elif second_option == "2":
+            for sentence in get_challenge_data():
+                print("\n",str(count2)+ ")", " ", sentence)
+                count2+=1
+            fourth_option = input()
+            tokenizer(get_challenge_data()[int(fourth_option)-1], save_to_file)
+            sentence_parser(get_challenge_data()[int(fourth_option)-1], save_to_file)         
+            
+    elif one_option == "4":
+        sentences = input("Please write a full sentence.\n")
+        tokenizer(sentences, save_to_file)
+        sentence_parser(sentences, save_to_file)
+    else:
+        print("Invalid input please run preprocess again.")
 
 main()
-
-
-# grammar3 = nltk.CFG.fromstring("""
-                                 
-#                                  S -> NP VP | NP VP POS | PP NP VP | PP POS NP VP POS | NP POS PP POS NP ADVP VP POS | NP POS NP VP POS | VP | CC NP VP POS
-                                 
-#                                  NP -> NNP | NNP NNP | NNP NNP POS NNP | DT | DT NN | DT NN NN | PRP NN | NN NN | JJ NN | JJ NNP | PRP | DATE | PRP NN NNP | NP POS NP POS
-#                                  VP -> VBD S | VBD NP | VBD NP PP | VBD NP PP PP | VBD SBAR | MD VP | VB NP PP | VB NP PP PP | VB NP PP PP PP | VB ADJP | VBD NP SBAR | IN VP | VBD ADJP NP | VP CC VP | VB NP NP
-#                                  PP -> IN NP | IN NP POS NP
-#                                  ADVP -> RB
-#                                  SBAR -> IN S | SBAR CC SBAR
-#                                  ADJP -> JJ
-#                                  DATE -> MONTH DAY POS YEAR
-                                 
-#                                  CC -> "and" | "But"
-#                                  MONTH -> "September"
-#                                  DAY -> "17"
-#                                  YEAR -> "2018"
-#                                  VB -> "put" | "eat" | "be" | "share" | "delight"
-#                                  MD -> "will" | "would"
-#                                  IN -> "at" | "On" | "in" | "from" | "on" | "to" | "that" | "with"
-#                                  NNP -> "John" | "Monday" | "Tuesday" | "O" | "Malley" | "Mary" | "Sue"
-#                                  VBD -> "ate" | "took" | "promised" | "said" | "intended" | "was" | "anticipated"
-#                                  PRP -> "his" | "he" | "He" | "it" | "It" | "her" | "she" | "them"
-#                                  DT -> "an" | "the" | "a" | "that" | "both"
-#                                  NN -> "apple" | "table" | "fridge" | "office" | "refrigerator" | "week" | "desk" | "colleague" | "replacement" | "day" | "crunchy" | "treat"
-#                                  JJ -> "Last" | "crunchy" | "sick"
-#                                  RB -> "finally"
-#                                  POS -> "." | "," | "’"
-#                              """)
-
-# grammar2 = nltk.CFG.fromstring("""
-                                 
-#                                  S -> NP VP POS
-                                 
-#                                  NP -> NNP | DT NN | PRP NN | NN NN | JJ NN | PP
-#                                  VP -> VBD NP | VBD NP PP | VBD NP PP PP | POS NP VP | POS PP POS NP ADVP VP 
-#                                  PP -> IN NP
-#                                  ADVP -> RB
-                                 
-#                                  IN -> "at" | "On" | "in" | "from" | "on" | "to"
-#                                  NNP -> "John" | "Monday"
-#                                  VBD -> "ate" | "took"
-#                                  PRP -> "his"
-#                                  DT -> "an" | "the"
-#                                  NN -> "apple" | "table" | "fridge" | "office" | "refrigerator" | "week"
-#                                  JJ -> "Last"
-#                                  RB -> "finally"
-#                                  POS -> "." | ","
-#                              """)
-
-# grammar1 = nltk.CFG.fromstring("""
-                                 
-#                                  S -> NP VP POS | PP POS NP VP POS | NP POS PP POS NP ADVP VP POS
-                                 
-#                                  NP -> NNP | DT NN | PRP NN | NN NN | JJ NN 
-#                                  VP -> VBD NP | VBD NP PP | VBD NP PP PP
-#                                  PP -> IN NP
-#                                  ADVP -> RB
-                                 
-#                                  IN -> "at" | "On" | "in" | "from" | "on" | "to"
-#                                  NNP -> "John" | "Monday"
-#                                  VBD -> "ate" | "took"
-#                                  PRP -> "his"
-#                                  DT -> "an" | "the"
-#                                  NN -> "apple" | "table" | "fridge" | "office" | "refrigerator" | "week"
-#                                  JJ -> "Last"
-#                                  RB -> "finally"
-#                                  POS -> "." | ","
-#                              """)
